@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1> Detalle de la empresa: {{empresa.nombre}}</h1>
+{% if empresa.trabajador_set %}
+	<ul>
+		{% for trabajador in empresa.trabajador_set.all %}
+			<li>
+				<a href="/myapp/trabajadores/{{trabajador.id}}">{{trabajador.nombre}}</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No hay trabajadores</p>
+{% endif %}
+
+</body>
+</html>
