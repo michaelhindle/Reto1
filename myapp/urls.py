@@ -26,7 +26,7 @@ urlpatterns = [
     #path('<str:nombre_empresa>/', views.buscarEmpresa, name='buscarEmpresa'),
     
     # ej: 127.0.0.1:8000/miApp/empresa/5/
-    path('<int:pk>', EmpresaDetailView.as_view(), name='detalleEmpresa'),
+    path('empresa/<int:pk>', EmpresaDetailView.as_view(), name='detalleEmpresa'),
 
     path('trabajadores/<int:id_trabajador>', views.detalleTrabajador, name='detalleTrabajador'),
 ]
