@@ -1,55 +1,85 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, get_list_or_404
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from .models import Equipo, Ticket, Empleado
 
-
-from .models import Empresa 
 
 # Create your views here.
 
-class EmpresaListView(ListView):
-    model = Empresa
-    #queryset = Empleado.objects.all()
-    template_name = 'index.html'
-    context_object_name = 'lista_empresas'
+class EquipoUpdateView(UpdateView) :
+    form_class = EquipoForm
+    template_name = 'updateEquipo.html'
+    quearyset = Equipo 
 
-class EmpresaDetailView(DetailView):
-    model = Empresa
-    #queryset = Empleado.objects.all()
+class EquipoCreateView(CreateView) :
+    form_class = EquipoForm
+    template_name = 'createEquipo.html'
+    quearyset = Equipo 
+
+class EquipoListView(ListView):
+    model = Equipo
+    template_name = 'listaEquipo.html'
+    context_object_name = 'lista_equipos'
+
+class EquipoDetailView(DetailView):
+    model = Equipo
     template_name = 'detalleEmpresa.html'
     context_object_name = 'empresa'
-    '''
-    def get_context_data(self, **kwargs):
-        # Cargar el contexto base
-        context = super().get_context_data(**kwargs)
-        #context['lista_trabajadores']=
-'''
-def index(request):
-    empresas = get_list_or_404(Empresa)
-    context={
-        'lista_empresas': empresas
-    }
-    return render(request, "index.html", context)
-'''    
-def buscarEmpresa(request,nombre_empresa):
-    empresas = get_list_or_404(Empresa, nombre = nombre_empresa)
-    output = ', '.join([str(e.id) for e in empresas])
-    return HttpResponse(output)
     
-def detalleEmpresa(request, id_empresa):
-    empresa = get_object_or_404(Empresa, pk = id_empresa)
-    trabajadores = empresa.trabajador_set.all()
-    context = {
-        'empresa':empresa,
-        'lista_trabajadores':trabajadores
-    }
-    return render(request, "detalleEmpresa.html", context)
+class EquipoDeleteView(DeleteView):
+    form_class = EquipoForm
+    template_name = 'deleteEquipo.html'
+    quearyset = Equipo 
 
-def detalleTrabajador(request, id_trabajador):
-    trabajador = get_object_or_404(Trabajador, pk = id_trabajador)
-    context = {
-        'trabajador':trabajador
-    }
-    return render(request, "detalleTrabajador.html", context)
+
+
+
+class TicketUpdateView(UpdateView) :
+    form_class = TicketForm
+    template_name = 'updateTicket.html'
+    quearyset = Ticket 
+
+class TicketCreateView(CreateView) :
+    form_class = TicketForm
+    template_name = 'createTicket.html'
+    quearyset = Ticket
+
+class TicketListView(ListView):
+    model = Ticket
+    template_name = 'listaTicket.html'
+    context_object_name = 'lista_Tickets'
+
+class TicketDetailView(DetailView):
+    model = Ticket
+    template_name = 'detalleTicket.html'
+    context_object_name = 'Ticket'
+    
+class TicketDeleteView(DeleteView):
+    form_class = TicketForm
+    template_name = 'deleteTicket.html'
+    quearyset = Ticket 
+
+
+
+class EmpleadoUpdateView(UpdateView) :
+    form_class = EmpleadoForm
+    template_name = 'updateEmpleado.html'
+    quearyset = Empleado
+
+class EmpleadoCreateView(CreateView) :
+    form_class = EmpleadoForm
+    template_name = 'createEmpleado.html'
+    quearyset = Empleado
+
+class EmpleadoListView(ListView):
+    model = Empleado
+    template_name = 'listaEmpleado.html'
+    context_object_name = 'lista_Empleados'
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = 'detalleEmpleado.html'
+    context_object_name = 'Empleado'
+    
+class EmpleadoDeleteView(DeleteView):
+    form_class = EmpleadoForm
+    template_name = 'deleteEmpleado.html'
+    quearyset = Empleado 
