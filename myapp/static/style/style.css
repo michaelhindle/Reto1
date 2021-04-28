@@ -7,7 +7,7 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #F0EFE2 url(background.png) repeat;
+  background: #F0EFE2 url(../style/imganes/background.png) repeat;
   color: #777;}
 
 p
@@ -84,13 +84,14 @@ ol
 ol li
 { margin: 0 0 11px 0;}
 
-#main, #logo, #menubar, #site_content, #footer
+#main, #logo, #menubar, #zona_contenido, #footer
 { margin-left: auto; 
   margin-right: auto;}
 
 #header
-{ background: #1D1D1D url(header.jpg) repeat;
-  height: 240px;}
+{ background: #1D1D1D url(../style/imganes/header.png) no-repeat;
+  background-size: 100%;
+}
 
 #logo
 { width: 825px;
@@ -99,7 +100,7 @@ ol li
 
 #logo #logo_text 
 { position: absolute; 
-  top: 20px;
+  top: 25px;
   left: 0;}
 
 #logo h1, #logo h2
@@ -126,7 +127,7 @@ ol li
 { width: 900px;
   height: 72px;
   padding: 0;
-  background: transparent url(transparent_light.png) repeat;} 
+  background: transparent url(../style/imganes/transparent_light.png) repeat;} 
 
 ul#menu, ul#menu li
 { float: left;
@@ -151,72 +152,8 @@ ul#menu li a
 
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #FFF;
-  background: transparent url(transparent.png) repeat;}
+  background: transparent url(../style/imganes/transparent.png) repeat;}
 
-#site_content
-{ width: 854px;
-  overflow: hidden;
-  margin: 0 auto 0 auto;
-  padding: 20px 24px 20px 20px;
-  background: transparent url(transparent_light.png) repeat;} 
-
-.sidebar
-{ float: left;
-  width: 190px;
-  padding: 0 15px 20px 15px;}
-
-.sidebar ul
-{ width: 178px; 
-  padding: 4px 0 0 0; 
-  margin: 4px 0 30px 0;}
-
-.sidebar li
-{ list-style: none; 
-  padding: 0 0 7px 0; }
-
-.sidebar li a, .sidebar li a:hover
-{ padding: 0 0 0 40px;
-  display: block;
-  background: transparent url(link.png) no-repeat left center;} 
-
-.sidebar li a.selected
-{ color: #444;
-  text-decoration: none;} 
-
-#content
-{ text-align: left;
-  float: right;
-  width: 595px;
-  padding: 0;}
-
-#content ul
-{ margin: 2px 0 22px 0px;}
-
-#content ul li
-{ list-style-type: none;
-  background: url(bullet.png) no-repeat;
-  margin: 0 0 6px 0; 
-  padding: 0 0 4px 25px;
-  line-height: 1.5em;}
-
-#footer
-{ width: 900px;
-  font: normal 100% 'lucida sans unicode', arial, sans-serif;
-  height: 33px;
-  padding: 24px 0 5px 0;
-  text-align: center; 
-  background: transparent url(transparent_light.png) repeat;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;}
-
-#footer a
-{ color: #000;
-  text-decoration: none;}
-
-#footer a:hover
-{ color: #000;
-  text-decoration: underline;}
 
 .search
 { color: #5D5D5D; 

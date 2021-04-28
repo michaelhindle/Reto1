@@ -1,0 +1,22 @@
+#zona_contenido
+{ width: 854px;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+  padding: 20px 24px 20px 20px;
+  background: transparent url(../style/imganes/transparent_light.png) repeat;} 
+  
+#contenido
+{ text-align: left;
+  float: right;
+  width: 595px;
+  padding: 0;}
+  
+#contenido ul
+{ margin: 2px 0 22px 0px;}
+  
+#contenido ul li
+{ list-style-type: none;
+  background: url(../style/imganes/bullet.png) no-repeat;
+  margin: 0 0 6px 0; 
+  padding: 0 0 4px 25px;
+  line-height: 1.5em;}
