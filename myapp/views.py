@@ -1,6 +1,6 @@
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import Equipo, Ticket, Empleado
-
+from .forms import EquipoForm, TicketForm, EmpleadoForm
 
 # Create your views here.
 

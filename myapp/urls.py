@@ -16,16 +16,33 @@ Including another URLconf
 
 from django.urls import path
 from . import views
-from myapp.views import EmpresaListView, EmpresaDetailView
+from .views import (EquipoListView, TicketListView, EmpleadoListView, 
+EquipoUpdateView, TicketUpdateView, EmpleadoUpdateView, 
+EquipoCreateView, TicketCreateView, EmpleadoCreateView, 
+EquipoDeleteView, TicketDeleteView, EmpleadoDeleteView,
+EquipoDetailView, TicketDetailView, EmpleadoDetailView)
 
 urlpatterns = [
-    # ej: /myApp/
-    path('', EmpresaListView.as_view(), name='index'),
-   
-    # ej: 127.0.0.1:8000/miApp/Mercedes/
-    #path('<str:nombre_empresa>/', views.buscarEmpresa, name='buscarEmpresa'),
-    
-    # ej: 127.0.0.1:8000/miApp/empresa/5/
-    path('empresa/<int:pk>', EmpresaDetailView.as_view(), name='detalleEmpresa'),
-    path('trabajadores/<int:id_trabajador>', views.detalleTrabajador, name='detalleTrabajador'),
+    # Path de inicio
+    path('', views.EquipoListView, name='ListaEquipos'),
+    # Listas
+    path('listaEquipo/', EquipoListView.as_view(), name='ListaEquipos'),
+    path('listaTicket/', TicketListView.as_view(), name='ListaTickets'),
+    path('listaEmpleado/', EmpleadoListView.as_view(), name='ListaEmpleados'),
+    # Update
+    path('updateEquipo/<int:pk>/', EquipoUpdateView.as_view(), name='UpdateEquipos'),
+    path('updateTicket/<int:pk>/', TicketUpdateView.as_view(), name='UpdateTickets'),
+    path('updateEmpleado/<int:pk>/', EmpleadoUpdateView.as_view(), name='UpdateEmpleado'),
+    # Create
+    path('createEquipo/', EquipoCreateView.as_view(), name='CreateEquipo'),
+    path('createTicket/', TicketCreateView.as_view(), name='CreateTicket'),
+    path('createEmpleado/', EmpleadoCreateView.as_view(), name='CreateEmpleado'),
+    # Delete
+    path('deleteEquipo/<int:pk>/', EquipoDeleteView.as_view(), name='DeleteEquipo'),
+    path('deleteTicket/<int:pk>/', TicketDeleteView.as_view(), name='DeleteTicket'),
+    path('deleteEmpleado/<int:pk>/', EmpleadoDeleteView.as_view(), name='DeleteEmpleado'),
+    # Detail
+    path('detailEquipo/<int:pk>/', EquipoDetailView.as_view(), name='DetailEquipo'),
+    path('detailTicket/<int:pk>/', TicketDetailView.as_view(), name='DetailTicket'),
+    path('detailEmpleado/<int:pk>/', EmpleadoDetailView.as_view(), name='DetailEmpleado'),
 ]

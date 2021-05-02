@@ -1,35 +1,54 @@
 from django import forms
 from django.forms import DateInput
 
-from .models import Empleado, Equipo, Proceso
+from .models import Empleado, Equipo, Ticket
 
 
-class empleadoform(forms.Form):
-    nombre = forms.CharField(label="Nombre", max_length=100)
-    apellido = forms.CharField(label="Apellido", max_length=100)
-    email = forms.CharField(label="Email", max_length=150)
-    DNI = forms.CharField(label="DNI", max_length=9)
-    telefono = forms.IntegerField(label="Telefono")
-
-
-class equipoform(forms.Form):
-    marca = forms.CharField(label="Marca", max_length=50)
-    modelo = forms.CharField(label="Modelo", max_length=50)
-    categoria = forms.CharField(label="Categoria", max_length=50)
-    fecha_adquisicion = forms.DateField(label="Fecha de adquisicion",
-                                        widget=forms.SelectDateWidget(years=range(1970, 2050)))
-    fecha_instalacion = forms.DateField(label="Fecha de instalacion",
-                                        widget=forms.SelectDateWidget(years=range(1970, 2050)))
-
-
-class procesoform(forms.ModelForm):
+class EmpleadoForm(forms.Form):
     class Meta:
-        model = Proceso
+        model = Empleado
         fields = ('__all__')
         widgets = {
-            'inicio': forms.SelectDateWidget(years=range(1970, 2050)),
-            'fin': forms.SelectDateWidget(years=range(1970, 2050)),
+            'email':forms.EmailInput(),
         }
+
+
+class EquipoForm(forms.Form):
+    class Meta:
+        model = Equipo
+        fields = ('__all__')
+        widgets = {
+            'fecha_adquisicion': forms.NumberInput(attrs={'type':'date'}),
+            'fecha_puestaenmarcha': forms.NumberInput(attrs={'type':'date'}),
+        }
+
+class TicketForm(forms.Form):
+    URGENCIA = (
+        ("Alta","Alta"),
+        ("Media","Media"),
+        ("Baja","Baja"),
+    )
+    TIPO = (
+        ("Tipo1","Tipo1"),
+        ("Tipo2","Tipo2"),
+        ("Tipo3","Tipo3"),
+    )
+    ESTADO = (
+        ("Estado1","Estado1"),
+        ("Estado2","Estado2"),
+        ("Estado3","Estado3"),
+    )
+    nivel_urgencia = forms.ChoiceField(choices = URGENCIA)
+    tipo_ticket = forms.ChoiceField(choices = TIPO)
+    estado_ticket = forms.ChoiceField(choices = ESTADO)
+    class Meta:
+        model = Ticket
+        fields = ('__all__')
+        widgets = {
+            'fecha_apertura': forms.NumberInput(attrs={'type':'date'}),
+            'fecha_resolucion': forms.NumberInput(attrs={'type':'date'}),
+        }
+
 
 
 class RegisterForm(forms.Form):
