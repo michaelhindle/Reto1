@@ -26,8 +26,8 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li class="selected"><a href="indexejemplo.html">Home</a></li>
-          <li><a href="examples.html">Examples</a></li>
-          <li><a href="page.html">A Page</a></li>
+          <li><a href="equipo.html">Equipo</a></li>
+          <li><a href="ticket.html">Ticket</a></li>
           <li><a href="another_page.html">Another Page</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -35,7 +35,7 @@
     </div>
     <div id="zona_contenido">
       <div class="lateral">
-        <!-- insert your lateral items here -->
+        <!-- informacion lateral se colocara en este div -->
         <h3>Latest News</h3>
         <h4>New Website Launched</h4>
         <h5>October 1st, 2013</h5>
@@ -60,23 +60,22 @@
         </form>
       </div>
       <div id="contenido">
-        <!-- insert the page contenido here -->
-        <h1>Welcome to the textured_industrial template</h1>
-        <p>This standards compliant, simple, fixed width website template is released as an 'open source' design (under a <a href="http://creativecommons.org/licenses/by/3.0">Creative Commons Attribution 3.0 Licence</a>), which means that you are free to download and use it for anything you want (including modifying and amending it). All I ask is that you leave the 'design from HTML5webtemplates.co.uk' link in the footer of the template, but other than that...</p>
-        <p>This template is written entirely in <strong>HTML5</strong> and <strong>CSS</strong>, and can be validated using the links in the footer.</p>
-        <p>You can view more free HTML5 web templates <a href="http://www.html5webtemplates.co.uk">here</a>.</p>
-        <p>This template is a fully functional 5 page website, with an <a href="examples.html">examples</a> page that gives examples of all the styles available with this design.</p>
-        <h2>Browser Compatibility</h2>
-        <p>This template has been tested in the following browsers:</p>
-        <ul>
-          <li>Internet Explorer 8</li>
-          <li>Internet Explorer 7</li>
-          <li>FireFox 3.5</li>
-          <li>Google Chrome 6</li>
-        </ul>
+        <!-- el contenido principal se colocala en este div -->
+        <h1>Gestion de Mantenimiento</h1>
+        <h2>Crear usuario</h2>
+        <label for="dni"> NIE: </label> 
+        <input type="number" name="dni" class="dato"><br>
+        <label for="nombre"> Nombre: </label> 
+        <input type="text" name="nombre" class="dato"><br>
+        <label for="apellido"> Apellidos: </label> 
+        <input type="text" name="apellido" class="dato"><br>
+        <label for="fechaResolucion">Fecha de Resolución:</label>  
+        <input type="date" name="fechaResolucion" class="dato"><br>
+        <label for="nivelUrgencia">Nivel de Urgencia:</label>
       </div>
     </div>
     <div id="footer">
+      <!-- El pie de la pagina se colocara en este div -->
       <div class="cuerpo-entero">
         <div class="cuerpo">
           <div class="columna1">
