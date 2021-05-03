@@ -23,8 +23,8 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li><a href="indexejemplo.html">Home</a></li>
-          <li><a href="equipo.html">Equipo</a></li>
-          <li class="selected"><a href="ticket.html">Ticket</a></li>
+          <li class="selected"><a href="equipo.html">Equipo</a></li>
+          <li><a href="ticket.html">Ticket</a></li>
           <li><a href="another_page.html">Another Page</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
@@ -33,7 +33,7 @@
     <div id="zona_contenido">
       <div class="lateral">
           <!-- informacion lateral se colocara en este div -->
-          <h3>Ticket</h3>
+          <h3>Equipo</h3>
           <h4>New Website Launched</h4>
           <h5>October 1st, 2013</h5>
           <p>2013 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
@@ -57,55 +57,45 @@
           </form>
       </div>
       <div id="contenido">
-          <!-- el contenido principal se colocala en este div -->
-          <h1>Ticket</h1>
-          <div class="botones">
-            <a class="boton1" href="crearTicket.html">Crear</a>
-            <a class="boton2" href="actualizarTicket.html">Actualizar</a>
-            <a class="boton3" href="visualizarTicket.html">Visualizar Ticket</a>
-          </div>
-          <div class="datos">
-            <label for="titulo"> Titulo: </label> 
-            <input type="text" name="titulo" class="dato"><br>
-            <label for="descripcionDetallada"> Descripcion Detallada: </label> 
-            <input type="text" name="descripcionDetallada" class="dato"><br>
-            <label for="fechaApertura"> Fecha de apertura: </label> 
-            <input type="date" name="fechaApertura" class="dato"><br>
-            <label for="fechaResolucion">Fecha de Resolución:</label>  
-            <input type="date" name="fechaResolucion" class="dato"><br>
-            <label for="nivelUrgencia">Nivel de Urgencia:</label>
-            <!--Nivel de urgencia del Ticket-->
-            <select name="nivelUrgencia" id="urgencia" class="dato">
+        <!-- el contenido principal se colocala en este div -->
+        <h1>Equipo</h1>
+        <div class="botones">
+          <a class="boton1" href="createEquipo.html">Crear</a>
+          <a class="boton2" href="bajaEquipo.html">baja</a>
+          <a class="boton3" href="listaEquipo.html">Visualizar Equipo</a>
+        </div>
+        <div class="datos">
+          <form method="POST">{% csrf_token %}
+            {{ form.as_p }}
+            <label for="modelo"> Modelo: </label> 
+            <input type="text" name="modelo" class="dato"><br>
+            <label for="marca"> Marca: </label> 
+            <input type="text" name="marca" class="dato"><br>
+            <label for="tipoEquipo">Tipo de equipo: </label>
+            <input type="text" name="tipoEquipo" class="dato"><br>
+            <label for="fechaAdquisicion"> Fecha de adquisicion: </label> 
+            <input type="date" name="fechaAdquisicion" class="dato"><br>
+            <label for="fechaPuestaMarcha">Fecha puesta en marcha:</label>  
+            <input type="date" name="fechaPuestaMarcha" class="dato"><br>
+            <!--Nombre y telefono del proveedor-->
+            <label for="nombreProveedor">Nombre del proveedor:</label>
+            <input type="text" name="nombreProveedor" class="dato"><br>
+            <label for="telefonoProveedor">Telefono del proveedor: </label>
+            <input type="number" name="telefonoProveedor" class="dato"><br>
+            <!--Tipo planta que se encuentra-->
+            <label for="planta">Planta en la se encuentra: </label>
+            <select name="planta" class="dato">
               <optgroup>
-                <option value="bajo">Bajo</option>
-                <option value="medio">Medio</option>
-                <option value="alto">Alto</option>
-                <option value="urgente">Urgente</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
               </optgroup>
             </select><br>
-            <!--Tipo de ticket-->
-            <label for="tipoTicket">Tipo de Ticket: </label>
-            <input type="radio" name="tipoTicket" class="dato" value="averia">
-            <label for="tipoTicket">Averia</label>
-            <input type="radio" name="tipoTicket" class="dato" value="mejora">
-            <label for="tipoTicket">Mejora</label>
-            <input type="radio" name="tipoTicket" class="dato" value="mantenimiento">
-            <label for="tipoTicket">Mantenimiento</label><br>
-            <!--Estado del ticket-->
-            <label for="estadoTicket">Estado del Ticket: </label>
-            <input type="radio" name="estadoTicket" class="dato" value="abierto">
-            <label for="estadoTicket">Abierto</label>
-            <input type="radio" name="estadoTicket" class="dato" value="cerrado">
-            <label for="estadoTicket">Cerrado</label><br>
-            <!--Encargado del ticket por DNI-->
-            <label for="encargado">DNI del empleado:</label>
-            <input type="text" name="encargado" class="dato"><br>
-            <!--Comentarios-->
-            <label for="comentarios">Comentarios: </label><br>
-            <textarea name="comentarios" id="comentario" class="dato" cols="30" rows="10"></textarea>
-          </div>
-        <div>
-            <input type="submit" value="Crear" name="registro" class="crearTicket">
+            <div>
+              <input type="submit" value="Crear" name="registro" class="crearTicket">
+            </div>
+          </form>
         </div>
       </div>
     </div>
