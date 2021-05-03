@@ -24,14 +24,14 @@
         </div>
       </div>
       <div id="menubar">
-        <tr id="menu">
+        <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li><a href="indexejemplo.html">Home</a></li>
           <li class="selected"><a href="equipo.html">Equipo</a></li>
           <li><a href="ticket.html">Ticket</a></li>
           <li><a href="another_page.html">Another Page</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-        </tr>
+        </ul>
       </div>
     </div>
     <div id="zona_contenido">
@@ -45,13 +45,13 @@
         <h4>New Website Launched</h4>
         <h5>October 1st, 2013</h5>
         <p>2013 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-        <h3>Useftr Links</h3>
-        <tr>
+        <h3>Useful Links</h3>
+        <ul>
           <li><a href="#">link 1</a></li>
           <li><a href="#">link 2</a></li>
           <li><a href="#">link 3</a></li>
           <li><a href="#">link 4</a></li>
-        </tr>
+        </ul>
         <h3>Search</h3>
         <form method="post" action="#" id="search_form">
           <p>
@@ -67,24 +67,6 @@
           <a class="boton1" href="createEquipo.html">Crear</a>
           <a class="boton2" href="bajaEquipo.html">Baja</a>
           <a class="boton3" href="listaEquipo.html">Visualizar Equipo</a>
-          
-          {% if lista_equipos %}
-          {% for equipo in lista_equipos %}
-          <tr>
-              <td>{{ equipo.modelo }}</td>
-              <td>{{ equipo.marca }}</td>
-              <td><a href="bajaEquipo.html"> <img src="../static/style/imganes/localizador.png" alt="borrar" width="100px" height="100px"></a></td>
-            {% empty %}
-              <td>No articles yet.</td>
-          </tr>
-          {% endfor %}
-          
-          {% else %}
-
-          <p>No se ha encontrado nada</p>
-
-          {% endif %}
-
         </div>
       </div>
     </div>
