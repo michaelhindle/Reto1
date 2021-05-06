@@ -6,80 +6,87 @@ from .forms import EquipoForm, TicketForm, EmpleadoForm
 
 class EquipoUpdateView(UpdateView) :
     form_class = EquipoForm
-    template_name = 'updateEquipo.html'
-    quearyset = Equipo 
+    template_name = 'createEquipo.html'
+    model = Equipo 
+    success_url = "http://127.0.0.1:8000/myapp/listaEquipo"
 
 class EquipoCreateView(CreateView) :
     form_class = EquipoForm
     template_name = 'createEquipo.html'
-    quearyset = Equipo 
+    queryset = Equipo 
+    success_url = "http://127.0.0.1:8000/myapp/listaEquipo"
 
 class EquipoListView(ListView):
     model = Equipo
     template_name = 'listaEquipo.html'
-    context_object_name = 'lista_equipos'
+    
 
 class EquipoDetailView(DetailView):
     model = Equipo
-    template_name = 'detalleEmpresa.html'
-    context_object_name = 'empresa'
+    template_name = 'detailEquipo.html'
+    queryset = Equipo.objects.all()
     
 class EquipoDeleteView(DeleteView):
-    form_class = EquipoForm
+    model = Equipo
     template_name = 'deleteEquipo.html'
-    quearyset = Equipo 
+    success_url = "http://127.0.0.1:8000/myapp/listaEquipo"
 
 
 
 
 class TicketUpdateView(UpdateView) :
     form_class = TicketForm
-    template_name = 'updateTicket.html'
-    quearyset = Ticket 
+    template_name = 'createTicket.html'
+    model = Ticket 
+    success_url = "http://127.0.0.1:8000/myapp/listaTicket"
 
 class TicketCreateView(CreateView) :
     form_class = TicketForm
     template_name = 'createTicket.html'
-    quearyset = Ticket
+    queryset = Ticket
+    success_url = "http://127.0.0.1:8000/myapp/listaTicket"
 
 class TicketListView(ListView):
     model = Ticket
     template_name = 'listaTicket.html'
-    context_object_name = 'lista_Tickets'
+    
 
 class TicketDetailView(DetailView):
     model = Ticket
-    template_name = 'detalleTicket.html'
-    context_object_name = 'Ticket'
+    template_name = 'detailTicket.html'
+    queryset = Ticket.objects.all()
     
 class TicketDeleteView(DeleteView):
     form_class = TicketForm
     template_name = 'deleteTicket.html'
-    quearyset = Ticket 
+    model = Ticket 
+    success_url = "http://127.0.0.1:8000/myapp/listaTicket"
 
 
 
 class EmpleadoUpdateView(UpdateView) :
     form_class = EmpleadoForm
-    template_name = 'updateEmpleado.html'
-    quearyset = Empleado
+    template_name = 'createEmpleado.html'
+    model = Empleado
+    success_url = "http://127.0.0.1:8000/myapp/listaEmpleado"
 
 class EmpleadoCreateView(CreateView) :
     form_class = EmpleadoForm
     template_name = 'createEmpleado.html'
-    quearyset = Empleado
+    queryset = Empleado
+    success_url = "http://127.0.0.1:8000/myapp/listaEmpleado"
 
 class EmpleadoListView(ListView):
     model = Empleado
     template_name = 'listaEmpleado.html'
-    context_object_name = 'lista_Empleados'
+    
 
 class EmpleadoDetailView(DetailView):
     model = Empleado
-    template_name = 'detalleEmpleado.html'
-    context_object_name = 'Empleado'
+    template_name = 'detailEmpleado.html'
+    queryset = Empleado.objects.all()
     
 class EmpleadoDeleteView(DeleteView):
-    form_class = EmpleadoForm
+    model = Empleado
     template_name = 'deleteEmpleado.html'
-    quearyset = Empleado 
+    success_url = "http://127.0.0.1:8000/myapp/listaEmpleado"

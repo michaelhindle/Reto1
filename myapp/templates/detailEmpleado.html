@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+
+    
+{% block main %}
+<div >
+    <div >
+        <h2>Empleado Detalle: {{ object.dni }}</h2>
+        <a href="http://127.0.0.1:8000/myapp/listaEmpleado/"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px" height="35px" title="Pulsa para volver a la página anterior"></a>
+        <ul>
+            <li><em>Nombre</em>: <strong>{{ object.nombre }}</strong></li>
+            <li><em>Apellido</em>: <strong>{{ object.apellidos }}</strong></li>
+            <li><em>Email</em>: <strong>{{ object.email }}</strong></li>
+            <li><em>Telefono</em>: <strong>{{ object.telefono }}</strong></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

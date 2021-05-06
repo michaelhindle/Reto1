@@ -4,7 +4,7 @@
     
 {% block main %}
 
-<a href="http://127.0.0.1:8000/myapp/listaTicket"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px"></a>
+<a href="http://127.0.0.1:8000/myapp/listaEmpleado"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px"></a>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}

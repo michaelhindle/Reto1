@@ -36,41 +36,48 @@
       
       <div id="contenido">
         <!-- el contenido principal se colocala en este div -->
-        <h1>Equipo</h1>
-        <a href="http://127.0.0.1:8000/myapp/createEquipo/" class="crear" > <img src="{% static 'imagenes/telefono.png' %}" width="35px"></a>
+        <h1>Ticket</h1>
+        <a href="http://127.0.0.1:8000/myapp/createTicket/" class="crear" > <img src="{% static 'imagenes/telefono.png' %}" width="35px"></a>
         <table>
           <thead>
             <tr>
-                <th class="cabecera">Número de Serie</th>
-                <th class="cabecera">Tipo</th>
-                <th class="cabecera">Nombre del proveedor</th>
-                <th class="cabecera">Telefono del proveedor</th>
-                <th class="cabecera">Vacio de momento</th>
+                <th class="cabecera">Número de referencia</th>
+                <th class="cabecera">Titulo</th>
+                <th class="cabecera">Fecha de apertura</th>
+                <th class="cabecera">Fecha de resolución</th>
+                <th class="cabecera">Nivel de urgencia</th>
+                <th class="cabecera">Tipo de ticket</th>
+                <th class="cabecera">Estado del ticket</th>
+                <th class="cabecera">Descripción</th>
+                <th class="cabecera">Comentario</th>
             </tr>
         </thead>
         <tbody>
             {% if object_list %}
-            {% for equipo in object_list %}
+            {% for ticket in object_list %}
             <tr>
-                <td>{{ equipo.numerodeserie }}</td>
-                <td>{{ equipo.tipoequipo}}</td>
-                <td>{{ equipo.proveedor_nombre }}</td>
-                <td>{{ equipo.proveedor_tlf }}</td>
-                <td><a href="{% url 'reto:DeleteEquipo' equipo.id %}">Eliminar</a>
-                  <a href="{% url 'reto:DetailEquipo' equipo.id %}">Info</a>
-                  <a href="{% url 'reto:UpdateEquipo' equipo.id %}">Editar</a>
+                <td>{{ ticket.numeroreferencia }}</td>
+                <td>{{ ticket.titulo}}</td>
+                <td>{{ ticket.fecha_apertura }}</td>
+                <td>{{ ticket.fecha_resolucion }}</td>
+                <td>{{ ticket.nivel_urgencia }}</td>
+                <td>{{ ticket.tipo_ticket }}</td>
+                <td>{{ ticket.estado_ticket }}</td>
+                <td>{{ ticket.descripcion }}</td>
+                <td>{{ ticket.comentario }}</td>
+                <td><a href="{% url 'reto:DeleteTicket' ticket.id %}">Eliminar</a>
+                  <a href="{% url 'reto:DetailTicket' ticket.id %}">Info</a>
+                  <a href="{% url 'reto:UpdateTicket' ticket.id %}">Editar</a>
                 </td>
                   
             </tr>
             {% endfor %}
 
             {% else %}
-            <h1>No hay proyectos disponibles</h1>
+            <h1>No hay tickets disponibles actualmente</h1>
 
             {% endif %}
         </tbody>
         </table>
       </div>
 {% endblock %}
-   
-  

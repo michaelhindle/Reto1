@@ -36,41 +36,41 @@
       
       <div id="contenido">
         <!-- el contenido principal se colocala en este div -->
-        <h1>Equipo</h1>
-        <a href="http://127.0.0.1:8000/myapp/createEquipo/" class="crear" > <img src="{% static 'imagenes/telefono.png' %}" width="35px"></a>
+        <h1>Empleado</h1>
+        <a href="http://127.0.0.1:8000/myapp/createEmpleado/" class="crear" > <img src="{% static 'imagenes/telefono.png' %}" width="35px"></a>
         <table>
           <thead>
             <tr>
-                <th class="cabecera">Número de Serie</th>
-                <th class="cabecera">Tipo</th>
-                <th class="cabecera">Nombre del proveedor</th>
-                <th class="cabecera">Telefono del proveedor</th>
-                <th class="cabecera">Vacio de momento</th>
+                <th class="cabecera">Nombre</th>
+                <th class="cabecera">Apellidos</th>
+                <th class="cabecera">Email</th>
+                <th class="cabecera">Telefono</th>
+                <th class="cabecera">DNI</th>
             </tr>
         </thead>
         <tbody>
             {% if object_list %}
-            {% for equipo in object_list %}
+            {% for empleado in object_list %}
             <tr>
-                <td>{{ equipo.numerodeserie }}</td>
-                <td>{{ equipo.tipoequipo}}</td>
-                <td>{{ equipo.proveedor_nombre }}</td>
-                <td>{{ equipo.proveedor_tlf }}</td>
-                <td><a href="{% url 'reto:DeleteEquipo' equipo.id %}">Eliminar</a>
-                  <a href="{% url 'reto:DetailEquipo' equipo.id %}">Info</a>
-                  <a href="{% url 'reto:UpdateEquipo' equipo.id %}">Editar</a>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos}}</td>
+                <td>{{ empleado.email }}</td>
+                <td>{{ empleado.telefono }}</td>
+                <td>{{ empleado.dni }}</td>
+                <td>
+                  <a href="{% url 'reto:DeleteEmpleado' empleado.id %}">Eliminar</a>
+                  <a href="{% url 'reto:DetailEmpleado' empleado.id %}">Info</a>
+                  <a href="{% url 'reto:UpdateEmpleado' empleado.id %}">Editar</a>
                 </td>
                   
             </tr>
             {% endfor %}
 
             {% else %}
-            <h1>No hay proyectos disponibles</h1>
+            <h1>No hay empleados dados de alta en la base de datos</h1>
 
             {% endif %}
         </tbody>
         </table>
       </div>
 {% endblock %}
-   
-  

@@ -7,7 +7,7 @@ html
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
-  background: #F0EFE2 url(../style/imganes/background.png) repeat;
+  background: #F0EFE2 url(../imagenes/background.png) repeat;
   color: #777;}
 
 p
@@ -17,7 +17,7 @@ p
 img
 { border: 0;}
 
-h1, h2, h3, h4, h5, h6 
+h1, h3 
 { font: normal 175% 'century gothic', arial, sans-serif;
   color: #007694;
   margin: 0 0 15px 0;
@@ -31,7 +31,7 @@ h4, h5, h6
 { margin: 0;
   padding: 0 0 5px 0;
   font: normal 120% arial, sans-serif;
-  color: #000;}
+  color: rgb(247, 240, 240);}
 
 h5, h6
 { font: italic 95% arial, sans-serif;
@@ -89,7 +89,7 @@ ol li
   margin-right: auto;}
 
 #header
-{ background: #1D1D1D url(../style/imganes/header.png) no-repeat;
+{ background: #1D1D1D url(../imagenes/header.png) no-repeat;
   background-size: 100%;
 }
 
@@ -127,7 +127,7 @@ ol li
 { width: 900px;
   height: 72px;
   padding: 0;
-  background: transparent url(../style/imganes/transparent_light.png) repeat;} 
+  background: transparent url(/imagenes/transparent_light.png) repeat;} 
 
 ul#menu, ul#menu li
 { float: left;
@@ -152,7 +152,7 @@ ul#menu li a
 
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #FFF;
-  background: transparent url(../style/imganes/transparent.png) repeat;}
+  background: transparent url(../imagenes/transparent.png) repeat;}
 
 
 .search
@@ -219,7 +219,7 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
   margin: 0 0 20px 0;}
   
 table
-{ margin: 10px 0 30px 0;}
+{ margin: auto;}
 
 table tr th, table tr td
 { background: #3B3B3B;

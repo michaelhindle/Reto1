@@ -22,16 +22,18 @@ EquipoCreateView, TicketCreateView, EmpleadoCreateView,
 EquipoDeleteView, TicketDeleteView, EmpleadoDeleteView,
 EquipoDetailView, TicketDetailView, EmpleadoDetailView)
 
+app_name = 'reto'
+
 urlpatterns = [
     # Path de inicio
-    path('', views.EquipoListView, name='ListaEquipos'),
+    path('', views.EquipoListView, name='ListaEquipo'),
     # Listas
     path('listaEquipo/', EquipoListView.as_view(), name='ListaEquipos'),
-    path('listaTicket/', TicketListView.as_view(), name='ListaTickets'),
-    path('listaEmpleado/', EmpleadoListView.as_view(), name='ListaEmpleados'),
+    path('listaTicket/', TicketListView.as_view(), name='ListaTicket'),
+    path('listaEmpleado/', EmpleadoListView.as_view(), name='ListaEmpleado'),
     # Update
-    path('updateEquipo/<int:pk>/', EquipoUpdateView.as_view(), name='UpdateEquipos'),
-    path('updateTicket/<int:pk>/', TicketUpdateView.as_view(), name='UpdateTickets'),
+    path('updateEquipo/<int:pk>/', EquipoUpdateView.as_view(), name='UpdateEquipo'),
+    path('updateTicket/<int:pk>/', TicketUpdateView.as_view(), name='UpdateTicket'),
     path('updateEmpleado/<int:pk>/', EmpleadoUpdateView.as_view(), name='UpdateEmpleado'),
     # Create
     path('createEquipo/', EquipoCreateView.as_view(), name='CreateEquipo'),

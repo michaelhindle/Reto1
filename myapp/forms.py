@@ -4,7 +4,7 @@ from django.forms import DateInput
 from .models import Empleado, Equipo, Ticket
 
 
-class EmpleadoForm(forms.Form):
+class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
         fields = ('__all__')
@@ -13,16 +13,24 @@ class EmpleadoForm(forms.Form):
         }
 
 
-class EquipoForm(forms.Form):
+class EquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ('__all__')
+        fields = ['numerodeserie', 
+                    'modelo',
+                    'marca',
+                    'tipoequipo',
+                    'fecha_adquisicion',
+                    'fecha_puestaenmarcha',
+                    'proveedor_nombre',
+                    'proveedor_tlf',
+                    'planta']
         widgets = {
             'fecha_adquisicion': forms.NumberInput(attrs={'type':'date'}),
             'fecha_puestaenmarcha': forms.NumberInput(attrs={'type':'date'}),
         }
 
-class TicketForm(forms.Form):
+class TicketForm(forms.ModelForm):
     URGENCIA = (
         ("Alta","Alta"),
         ("Media","Media"),

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+    
+{% block main %}
+<div >
+    <div >
+        <h2>Ticket Detalle: {{ object.titulo }}</h2>
+        <a href="http://127.0.0.1:8000/myapp/listaTicket/"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px" height="35px" title="Pulsa para volver a la página anterior"></a>
+        <ul>
+            <li><em>Numero de referencia</em>: <strong>{{ object.numeroreferencia }}</strong></li>
+            <li><em>Fecha de apertura</em>: <strong>{{ object.fecha_apertura }}</strong></li>
+            <li><em>Fecha de resolución</em>: <strong>{{ object.fecha_resolucion }}</strong></li>
+            <li><em>Nivel de urgencia</em>: <strong>{{ object.nivel_urgencia }}</strong></li>
+            <li><em>Tipo de ticket</em>: <strong>{{ object.tipo_ticket }}</strong></li>
+            <li><em>Estado de ticket</em>: <strong>{{ object.estado_ticket }}</strong></li>
+            <li><em>Descripción</em>: <strong>{{ object.descripcion }}</strong></li>
+            <li><em>Comentario</em>: <strong>{{ object.comentario }}</strong></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
