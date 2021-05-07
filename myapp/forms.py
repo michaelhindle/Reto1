@@ -3,7 +3,7 @@ from django.forms import DateInput
 
 from .models import Empleado, Equipo, Ticket
 
-
+#La creacion del formulario de Empleado
 class EmpleadoForm(forms.ModelForm):
     class Meta:
         model = Empleado
@@ -12,7 +12,7 @@ class EmpleadoForm(forms.ModelForm):
             'email':forms.EmailInput(),
         }
 
-
+#La creacion del formulario de Equipo
 class EquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
@@ -30,6 +30,7 @@ class EquipoForm(forms.ModelForm):
             'fecha_puestaenmarcha': forms.NumberInput(attrs={'type':'date'}),
         }
 
+#La creacion del formulario de Ticket
 class TicketForm(forms.ModelForm):
     URGENCIA = (
         ("Alta","Alta"),
