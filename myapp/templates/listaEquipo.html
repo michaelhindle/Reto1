@@ -15,6 +15,7 @@
         <a href="http://127.0.0.1:8000/myapp/createEquipo/" class="crear" ><img src="{% static 'imagenes/mas.png' %}" width="35px"></a>
         <table>
           <thead>
+            <!--Cabecera de los datos del empleado-->
             <tr>
                 <th class="cabecera">Número de Serie</th>
                 <th class="cabecera">Tipo</th>
@@ -26,12 +27,16 @@
             {% if object_list %}
             {% for equipo in object_list %}
             <tr>
-                <td>{{ equipo.numerodeserie }}</td>
-                <td>{{ equipo.tipoequipo}}</td>
-                <td>{{ equipo.proveedor_nombre }}</td>
-                <td>{{ equipo.proveedor_tlf }}</td>
-                <td><a href="{% url 'reto:DeleteEquipo' equipo.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar</a>
+                <td>{{ equipo.numerodeserie }}</td> <!--Numero de serie guardados en la bd-->
+                <td>{{ equipo.tipoequipo}}</td> <!--Tipo de equipo guardados en la bd-->
+                <td>{{ equipo.proveedor_nombre }}</td> <!--Nombre del Proveedor guardados en la bd-->
+                <td>{{ equipo.proveedor_tlf }}</td> <!--Telefono del proveedor guardados en la bd-->
+                <td>
+                  <!--Imagen y "eliminar" el archivo completo de la fila-->
+                  <a href="{% url 'reto:DeleteEquipo' equipo.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar</a>
+                  <!--Imagen y "Informacion" el archivo completo de la fila-->
                   <a href="{% url 'reto:DetailEquipo' equipo.id %}"><img src="{% static 'imagenes/search.png' %}" width="20px" height="20pxs"> Info</a>
+                  <!--Imagen y "Detalles" el archivo completo de la fila-->
                   <a href="{% url 'reto:UpdateEquipo' equipo.id %}"> <img src="{% static 'imagenes/editar.png' %}" width="20px" height="20pxs"> Editar</a>
                 </td>
                   
@@ -39,6 +44,7 @@
             {% endfor %}
 
             {% else %}
+            <!--Si no sale ningun archivo guardado en la base de datos saldra este mensaje-->
             <h1>No hay proyectos disponibles</h1>
 
             {% endif %}

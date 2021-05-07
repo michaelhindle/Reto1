@@ -13,6 +13,7 @@
         <h2>Equipo Detalle: {{ object.numerodeserie }}</h2>
         <a href="http://127.0.0.1:8000/myapp/listaEquipo/"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px" height="35px" title="Pulsa para volver a la página anterior"></a>
         <ul>
+            <!--Muestra los datos mas especificos de la fila seleccionada donde se encuentra-->
             <li><em>Modelo</em>: <strong>{{ object.modelo }}</strong></li>
             <li><em>Marca</em>: <strong>{{ object.marca }}</strong></li>
             <li><em>Tipo</em>: <strong>{{ object.tipoequipo }}</strong></li>

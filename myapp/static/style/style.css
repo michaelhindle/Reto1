@@ -27,19 +27,11 @@ h2
 { font: normal 175% 'century gothic', arial, sans-serif;
   color: #000;}
 
-h4, h5, h6
+h4
 { margin: 0;
   padding: 0 0 5px 0;
   font: normal 120% arial, sans-serif;
   color: rgb(247, 240, 240);}
-
-h5, h6
-{ font: italic 95% arial, sans-serif;
-  padding: 0 0 15px 0;
-  color: #000;}
-
-h6
-{ color: #362C20;}
 
 a{
   text-decoration: none;

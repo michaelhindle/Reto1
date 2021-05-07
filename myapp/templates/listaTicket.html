@@ -15,6 +15,7 @@
         <a href="http://127.0.0.1:8000/myapp/createTicket/" class="crear" > <img src="{% static 'imagenes/mas.png' %}" width="35px"> </a>
         <table>
           <thead>
+            <!--Cabecera de los datos del empleado-->            
             <tr>
                 <th class="cabecera">Número de referencia</th>
                 <th class="cabecera">Titulo</th>
@@ -31,17 +32,21 @@
             {% if object_list %}
             {% for ticket in object_list %}
             <tr>
-                <td>{{ ticket.numeroreferencia }}</td>
-                <td>{{ ticket.titulo}}</td>
-                <td>{{ ticket.fecha_apertura }}</td>
-                <td>{{ ticket.fecha_resolucion }}</td>
-                <td>{{ ticket.nivel_urgencia }}</td>
-                <td>{{ ticket.tipo_ticket }}</td>
-                <td>{{ ticket.estado_ticket }}</td>
-                <td>{{ ticket.descripcion }}</td>
-                <td>{{ ticket.comentario }}</td>
-                <td><a href="{% url 'reto:DeleteTicket' ticket.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar </a>
+                <td>{{ ticket.numeroreferencia }}</td> <!--Numero de Referencia guardado en la bd-->
+                <td>{{ ticket.titulo}}</td> <!--Titulo del ticket guardado en la bd-->
+                <td>{{ ticket.fecha_apertura }}</td> <!--Fecha de apertura del ticket guardado en la bd-->
+                <td>{{ ticket.fecha_resolucion }}</td> <!--Fecha de resolucion del ticket guardado en la bd-->
+                <td>{{ ticket.nivel_urgencia }}</td> <!--Nivel de urgencia del tiket guardado en la bd-->
+                <td>{{ ticket.tipo_ticket }}</td> <!--Tipo de ticket guardado en la bd-->
+                <td>{{ ticket.estado_ticket }}</td> <!--Estado del ticket guardado en la bd-->
+                <td>{{ ticket.descripcion }}</td> <!--Descripicion del ticket guardada en la bd-->
+                <td>{{ ticket.comentario }}</td> <!--Comentario del ticket guardado en la bd-->
+                <td>
+                  <!--Imagen y "eliminar" el archivo completo de la fila-->
+                  <a href="{% url 'reto:DeleteTicket' ticket.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar </a>
+                  <!--Imagen y "Informacion" el archivo completo de la fila-->
                   <a href="{% url 'reto:DetailTicket' ticket.id %}"> <img src="{% static 'imagenes/search.png' %}" width="20px" height="20pxs"> Info </a> <br>
+                  <!--Imagen y "Detalles" el archivo completo de la fila-->
                   <a href="{% url 'reto:UpdateTicket' ticket.id %}"> <img src="{% static 'imagenes/editar.png' %}" width="20px" height="20pxs"> Editar</a>
                 </td>
                   
@@ -49,6 +54,7 @@
             {% endfor %}
 
             {% else %}
+            <!--Si no sale ningun archivo guardado en la base de datos saldra este mensaje-->
             <h1>No hay tickets disponibles actualmente</h1>
 
             {% endif %}

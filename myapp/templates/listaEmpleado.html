@@ -9,6 +9,7 @@
         <a href="http://127.0.0.1:8000/myapp/createEmpleado/" class="crear" > <img src="{% static 'imagenes/mas.png' %}" width="35px"></a>
         <table>
           <thead>
+            <!--Cabecera de los datos del empleado-->
             <tr>
                 <th class="cabecera">Nombre</th>
                 <th class="cabecera">Apellidos</th>
@@ -21,14 +22,17 @@
             {% if object_list %}
             {% for empleado in object_list %}
             <tr>
-                <td>{{ empleado.nombre }}</td>
-                <td>{{ empleado.apellidos}}</td>
-                <td>{{ empleado.email }}</td>
-                <td>{{ empleado.telefono }}</td>
-                <td>{{ empleado.dni }}</td>
+                <td>{{ empleado.nombre }}</td> <!--Nombre guardados en la bd-->
+                <td>{{ empleado.apellidos}}</td> <!--Apellidos guardados en la bd-->
+                <td>{{ empleado.email }}</td> <!--Email guardados en la bd-->
+                <td>{{ empleado.telefono }}</td> <!--Telefonos guardado en la bd-->
+                <td>{{ empleado.dni }}</td> <!--DNI guardados en la bd-->
                 <td>
+                  <!--Imagen y "eliminar" el archivo completo de la fila-->
                   <a href="{% url 'reto:DeleteEmpleado' empleado.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar</a>
+                  <!--Imagen y "Informacion" el archivo completo de la fila-->
                   <a href="{% url 'reto:DetailEmpleado' empleado.id %}"> <img src="{% static 'imagenes/search.png' %}" width="20px" height="20pxs"> Info</a>
+                  <!--Imagen y "Detalles" el archivo completo de la fila-->
                   <a href="{% url 'reto:UpdateEmpleado' empleado.id %}"> <img src="{% static 'imagenes/editar.png' %}" width="20px" height="20pxs"> Editar</a>
                 </td>
                   
@@ -36,6 +40,7 @@
             {% endfor %}
 
             {% else %}
+            <!--Si no sale ningun archivo guardado en la base de datos saldra este mensaje-->
             <h1>No hay empleados dados de alta en la base de datos</h1>
 
             {% endif %}
