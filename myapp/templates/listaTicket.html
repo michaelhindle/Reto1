@@ -8,36 +8,11 @@
 
     
 {% block main %}
-     <!--- <div class="lateral"></div>
-       informacion lateral se colocara en este div 
-        <h3>Latest News</h3>
-        <h4>New Website Launched</h4>
-        <h5>October 1st, 2013</h5>
-        <p>2013 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-        <p></p>
-        <h4>New Website Launched</h4>
-        <h5>October 1st, 2013</h5>
-        <p>2013 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>
-        <h3>Useful Links</h3>
-        <ul>
-          <li><a href="#">link 1</a></li>
-          <li><a href="#">link 2</a></li>
-          <li><a href="#">link 3</a></li>
-          <li><a href="#">link 4</a></li>
-        </ul>
-        <h3>Search</h3>
-        <form method="post" action="#" id="search_form">
-          <p>
-            <input class="search" type="text" name="search_field" value="Enter keywords....." />
-            <input name="search" type="image" style="border: 0; margin: 0 0 -9px 5px;" src="../static/imagenes/search.png" alt="Search" title="Search" />
-          </p>
-        </form>
-      </div> -->
-      
+     
       <div id="contenido">
         <!-- el contenido principal se colocala en este div -->
         <h1>Ticket</h1>
-        <a href="http://127.0.0.1:8000/myapp/createTicket/" class="crear" > <img src="{% static 'imagenes/telefono.png' %}" width="35px"></a>
+        <a href="http://127.0.0.1:8000/myapp/createTicket/" class="crear" > <img src="{% static 'imagenes/mas.png' %}" width="35px"> </a>
         <table>
           <thead>
             <tr>
@@ -65,9 +40,9 @@
                 <td>{{ ticket.estado_ticket }}</td>
                 <td>{{ ticket.descripcion }}</td>
                 <td>{{ ticket.comentario }}</td>
-                <td><a href="{% url 'reto:DeleteTicket' ticket.id %}">Eliminar</a>
-                  <a href="{% url 'reto:DetailTicket' ticket.id %}">Info</a>
-                  <a href="{% url 'reto:UpdateTicket' ticket.id %}">Editar</a>
+                <td><a href="{% url 'reto:DeleteTicket' ticket.id %}"><img src="{% static 'imagenes/basura.png' %}" width="20px" height="20pxs"> Eliminar </a>
+                  <a href="{% url 'reto:DetailTicket' ticket.id %}"> <img src="{% static 'imagenes/search.png' %}" width="20px" height="20pxs"> Info </a> <br>
+                  <a href="{% url 'reto:UpdateTicket' ticket.id %}"> <img src="{% static 'imagenes/editar.png' %}" width="20px" height="20pxs"> Editar</a>
                 </td>
                   
             </tr>
