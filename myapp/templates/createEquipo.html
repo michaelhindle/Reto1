@@ -3,8 +3,8 @@
 
     
 {% block main %}
-
-<a href="http://127.0.0.1:8000/myapp/listaEquipo"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="35px"></a>
+<!--Esta imagen sirve por si no se desea crear un nuevo ticket-->
+<a href="http://127.0.0.1:8000/myapp/listaEquipo"><img class="atras" src="{% static 'imagenes/atras.png' %}" width="50px"></a>
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
