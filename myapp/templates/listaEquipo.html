@@ -27,17 +27,8 @@
             {% if object_list %}
             {% for equipo in object_list %}
             <tr>
-<<<<<<< HEAD
-                <td>{{ equipo.numero_de_serie }}</td>
-                <td>{{ equipo.tipo_equipo}}</td>
-                <td>{{ equipo.proveedor_nombre }}</td>
-                <td>{{ equipo.proveedor_tlf }}</td>
-                <td><a href="{% url 'reto:DeleteEquipo' equipo.id %}">Eliminar</a>
-                  <a href="{% url 'reto:DetailEquipo' equipo.id %}">Info</a>
-                  <a href="{% url 'reto:UpdateEquipo' equipo.id %}">Editar</a>
-=======
-                <td>{{ equipo.numerodeserie }}</td> <!--Numero de serie guardados en la bd-->
-                <td>{{ equipo.tipoequipo}}</td> <!--Tipo de equipo guardados en la bd-->
+                <td>{{ equipo.numero_de_serie }}</td> <!--Numero de serie guardados en la bd-->
+                <td>{{ equipo.tipo_equipo}}</td> <!--Tipo de equipo guardados en la bd-->
                 <td>{{ equipo.proveedor_nombre }}</td> <!--Nombre del Proveedor guardados en la bd-->
                 <td>{{ equipo.proveedor_tlf }}</td> <!--Telefono del proveedor guardados en la bd-->
                 <td>
@@ -47,7 +38,6 @@
                   <a href="{% url 'reto:DetailEquipo' equipo.id %}"><img src="{% static 'imagenes/search.png' %}" width="20px" height="20pxs"> Info</a>
                   <!--Imagen y "Detalles" el archivo completo de la fila-->
                   <a href="{% url 'reto:UpdateEquipo' equipo.id %}"> <img src="{% static 'imagenes/editar.png' %}" width="20px" height="20pxs"> Editar</a>
->>>>>>> 64f9738221eaa21f8db3cdc733718122846e5cfb
                 </td>
                   
             </tr>
