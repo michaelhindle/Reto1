@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
 }
-.boton1, .boton2, .boton3 {
+.boton1{
     display: inline-block;
     background: rgb(2, 95, 170);
     color: white;

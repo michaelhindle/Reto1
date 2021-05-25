@@ -16,18 +16,18 @@ class EmpleadoForm(forms.ModelForm):
 class EquipoForm(forms.ModelForm):
     class Meta:
         model = Equipo
-        fields = ['numerodeserie', 
+        fields = ['numero_de_serie', 
                     'modelo',
                     'marca',
-                    'tipoequipo',
+                    'tipo_equipo',
                     'fecha_adquisicion',
-                    'fecha_puestaenmarcha',
+                    'fecha_puesta_en_marcha',
                     'proveedor_nombre',
                     'proveedor_tlf',
                     'planta']
         widgets = {
             'fecha_adquisicion': forms.NumberInput(attrs={'type':'date'}),
-            'fecha_puestaenmarcha': forms.NumberInput(attrs={'type':'date'}),
+            'fecha_puesta_en_marcha': forms.NumberInput(attrs={'type':'date'}),
         }
 
 class TicketForm(forms.ModelForm):

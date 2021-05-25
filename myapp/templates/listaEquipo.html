@@ -52,8 +52,8 @@
             {% if object_list %}
             {% for equipo in object_list %}
             <tr>
-                <td>{{ equipo.numerodeserie }}</td>
-                <td>{{ equipo.tipoequipo}}</td>
+                <td>{{ equipo.numero_de_serie }}</td>
+                <td>{{ equipo.tipo_equipo}}</td>
                 <td>{{ equipo.proveedor_nombre }}</td>
                 <td>{{ equipo.proveedor_tlf }}</td>
                 <td><a href="{% url 'reto:DeleteEquipo' equipo.id %}">Eliminar</a>
