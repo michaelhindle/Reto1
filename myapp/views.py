@@ -1,6 +1,9 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 from .models import Equipo, Ticket, Empleado
-from .forms import EquipoForm, TicketForm, EmpleadoForm
+from .forms import EquipoForm, TicketForm, EmpleadoForm, UserRegisterForm
+from django.contrib import messages 
+from django.shortcuts import render, redirect 
 
 # Create your views here.
 
@@ -90,3 +93,21 @@ class EmpleadoDeleteView(DeleteView):
     model = Empleado
     template_name = 'deleteEmpleado.html'
     success_url = "http://127.0.0.1:8000/myapp/listaEmpleado"
+
+
+def register(request): 
+    if request.method == 'POST': 
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            messages.success(request, f'Usuario {username} creado')
+            return redirect('http://127.0.0.1:8000/myapp/listaEmpleado')
+    else:
+        form = UserRegisterForm()
+
+    context = { 'form' : form}
+    return render(request, 'register.html', context)
+
+def profile(request):
+    return render(request, 'profile.html')

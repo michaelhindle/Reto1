@@ -1,5 +1,8 @@
 from django import forms
+from django.db.models import fields
 from django.forms import DateInput
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 from .models import Empleado, Equipo, Ticket
 
@@ -60,10 +63,15 @@ class TicketForm(forms.ModelForm):
 
 
 
-class RegisterForm(forms.Form):
+class UserRegisterForm(UserCreationForm):
     username = forms.CharField(max_length=100)
-    password1 = forms.CharField(widget=forms.PasswordInput, required=True)
-    password2 = forms.CharField(widget=forms.PasswordInput, required=True)
+    password1 = forms.CharField(widget=forms.PasswordInput, label='Contraseña')
+    password2 = forms.CharField(widget=forms.PasswordInput, label='Confirmar Contraseña')
+    
+    class Meta:
+        model= User
+        fields = ['username', 'email', 'password1','password2']
+        help_texts = {k:"" for k in fields }
 
 
 
