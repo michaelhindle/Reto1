@@ -15,6 +15,7 @@ Including another URLconf
 """
 
 from django.urls import path
+from django.contrib.auth.decorators import login_required
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 from .views import (EquipoListView, TicketListView, EmpleadoListView, 
@@ -31,7 +32,7 @@ urlpatterns = [
     # Listas
     path('listaEquipo/', EquipoListView.as_view(), name='ListaEquipos'),
     path('listaTicket/', TicketListView.as_view(), name='ListaTicket'),
-    path('listaEmpleado/', EmpleadoListView.as_view(), name='ListaEmpleado'),
+    path('listaEmpleado/', login_required(EmpleadoListView.as_view()), name='ListaEmpleado'),
     # Update
     path('updateEquipo/<int:pk>/', EquipoUpdateView.as_view(), name='UpdateEquipo'),
     path('updateTicket/<int:pk>/', TicketUpdateView.as_view(), name='UpdateTicket'),
