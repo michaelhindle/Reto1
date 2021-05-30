@@ -127,6 +127,10 @@ ul#menu li a
 ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
 { color: #FFF;
   background: transparent url(../imagenes/transparent.png) repeat;}
+
+#logout{
+  background-color: rgba(255, 255, 255, 0.719);
+}
   
 table
 { margin: auto;}
