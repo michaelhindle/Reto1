@@ -13,89 +13,90 @@
   <link rel="stylesheet" href="{% static 'style/boton.css' %}">
 </head>
 
-<body>
-  <div id="main">
-    <div id="header">
-      <div id="logo">
-        <div id="logo_text">
-          <!-- En esta parte se coloca el nombre de la empresa y tiene como directorio la lista de Equipo -->
-          <h1><a href="http://127.0.0.1:8000/myapp/listaEquipo/">Deustomach<span class="logo_colour">Innovation S.L.</span></a></h1>
-          <h2>Gestión de Mantenimiento de Equipos</h2>
+  <body>
+    <div id="main">
+      <div id="header">
+        <div id="logo">
+          <div id="logo_text">
+            <!-- En esta parte se coloca el nombre de la empresa y tiene como directorio la lista de Equipo -->
+            <h1><a href="http://127.0.0.1:8000/myapp/listaEquipo/">Deustomach<span class="logo_colour">Innovation S.L.</span></a></h1>
+            <h2>Gestión de Mantenimiento de Equipos</h2>
+          </div>
+        </div>
+        <div id="menubar">
+          <ul id="menu">
+            <!-- En esta parte se coloca el menu de los distintos apartados -->
+            <li><a href="http://127.0.0.1:8000/myapp/listaEquipo/">Equipo</a></li>
+            <li><a href="http://127.0.0.1:8000/myapp/listaTicket/">Ticket</a></li>
+            <li class="selected"><a href="http://127.0.0.1:8000/myapp/listaEmpleado/">Empleado</a></li>
+          </ul>
         </div>
       </div>
-      <div id="menubar">
-        <ul id="menu">
-          <!-- En esta parte se coloca el menu de los distintos apartados -->
-          <li><a href="http://127.0.0.1:8000/myapp/listaEquipo/">Equipo</a></li>
-          <li><a href="http://127.0.0.1:8000/myapp/listaTicket/">Ticket</a></li>
-          <li class="selected"><a href="http://127.0.0.1:8000/myapp/listaEmpleado/">Empleado</a></li>
-        </ul>
+      <div id="zona_contenido">
+        <h1>Bienvenido {{user.username | upper}}</h1>
+        {% block main %}
+        {% endblock %}
+      </div>
+      <div id="footer">
+        <!-- El pie de la pagina se colocara en este div -->
+        <div class="cuerpo-entero">
+          <div class="cuerpo">
+            <div class="columna1">
+              <h4>
+                Información
+              </h4>
+              <p>
+                Esta pagina es para la gestion de Mantenimiento de equipos de la empresa Deustomach Innovation S.L
+              </p>
+            </div>
+
+            <div class="columna2">
+              <h4>
+                Redes sociales
+              </h4>
+              <div class="fila">
+                <a href="https://es-es.facebook.com/"><img src="{% static 'imagenes/facebook.png' %}" alt="facebook" width="36px" height="36px"> </a>
+                <label> Siguenos en facebook</label>                                    
+              </div>
+              <div class="fila">                                    
+                <a href="https://www.instagram.com/"><img src="{% static 'imagenes/instagram.png' %}" alt="instagram" width="36px" height="36px"> </a>
+                <label> Siguenos en instagram</label>
+              </div>
+              <div class="fila">                                    
+                <a href="https://twitter.com/?lang=es"><img src="{% static 'imagenes/twitter.png' %}" alt="twitter" width="36px" height="36px"> </a>
+                <label> Siguenos en twitter</label>
+              </div>   
+                      
+            </div>
+              
+            <div class="columna3">
+              <h4>
+                Ayuda al cliente
+              </h4>
+
+              <div class="fila2">
+                <a href="https://www.google.es/maps/search/Avenida+De+los+Olmos,+n%C2%BA+1+Pab.+11B+Pol.+Ind.+01013+VITORIA/@42.8739268,-2.6518166,19.32z?hl=es"><img src="{% static 'imagenes/localizador.png' %}" alt="Dirección" width="36px" height="36px"></a>
+                <label> Avenida De los Olmos, nº 1 Pab. 11B 
+                  Pol. Ind. 
+                  01013 VITORIA 
+                </label>
+              </div>
+              <div class="fila2">
+                <img src="{% static 'imagenes/reloj.png' %}" alt="Horario" width="36px" height="36px">
+                <label> L-J 07:30-18:45 V 07:00-15:00 </label>
+              </div>
+              <div class="fila2">
+                <img src="{% static 'imagenes/telefono.png' %}" alt="Telefono" width="36px" height="36px">
+                <label> +34 945 274 490 </label>
+              </div>
+              <div class="fila2">
+                <img src="{% static 'imagenes/email.png' %}" alt="Email" width="36px" height="36px">
+                <label> DeustomachInnovation@gmail.com </label>
+              </div>
+            </div>
+          </div>                                
+        </div>
       </div>
     </div>
-    <div id="zona_contenido">
-      {% block main %}
-      {% endblock %}
-    </div>
-    <div id="footer">
-      <!-- El pie de la pagina se colocara en este div -->
-      <div class="cuerpo-entero">
-        <div class="cuerpo">
-          <div class="columna1">
-            <h4>
-              Información
-            </h4>
-            <p>
-              Esta pagina es para la gestion de Mantenimiento de equipos de la empresa Deustomach Innovation S.L
-            </p>
-          </div>
-
-          <div class="columna2">
-            <h4>
-              Redes sociales
-            </h4>
-            <div class="fila">
-              <a href="https://es-es.facebook.com/"><img src="{% static 'imagenes/facebook.png' %}" alt="facebook" width="36px" height="36px"> </a>
-              <label> Siguenos en facebook</label>                                    
-            </div>
-            <div class="fila">                                    
-              <a href="https://www.instagram.com/"><img src="{% static 'imagenes/instagram.png' %}" alt="instagram" width="36px" height="36px"> </a>
-              <label> Siguenos en instagram</label>
-            </div>
-            <div class="fila">                                    
-              <a href="https://twitter.com/?lang=es"><img src="{% static 'imagenes/twitter.png' %}" alt="twitter" width="36px" height="36px"> </a>
-              <label> Siguenos en twitter</label>
-            </div>   
-                    
-          </div>
-            
-          <div class="columna3">
-            <h4>
-              Ayuda al cliente
-            </h4>
-
-            <div class="fila2">
-              <a href="https://www.google.es/maps/search/Avenida+De+los+Olmos,+n%C2%BA+1+Pab.+11B+Pol.+Ind.+01013+VITORIA/@42.8739268,-2.6518166,19.32z?hl=es"><img src="{% static 'imagenes/localizador.png' %}" alt="Dirección" width="36px" height="36px"></a>
-              <label> Avenida De los Olmos, nº 1 Pab. 11B 
-                Pol. Ind. 
-                01013 VITORIA 
-              </label>
-            </div>
-            <div class="fila2">
-              <img src="{% static 'imagenes/reloj.png' %}" alt="Horario" width="36px" height="36px">
-              <label> L-J 07:30-18:45 V 07:00-15:00 </label>
-            </div>
-            <div class="fila2">
-              <img src="{% static 'imagenes/telefono.png' %}" alt="Telefono" width="36px" height="36px">
-              <label> +34 945 274 490 </label>
-            </div>
-            <div class="fila2">
-              <img src="{% static 'imagenes/email.png' %}" alt="Email" width="36px" height="36px">
-              <label> DeustomachInnovation@gmail.com </label>
-            </div>
-          </div>
-        </div>                                
-      </div>
-    </div>
-  </div>
-</body>
+  </body>
 </html>
