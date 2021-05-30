@@ -2,16 +2,16 @@
 <!DOCTYPE HTML>
 <html lang="es">
 
-  <head>
-    <title>Equipo</title>
-    <meta name="description" contenido="website description" />
-    <meta name="keywords" contenido="website keywords, website keywords" />
-    <meta http-equiv="contenido-type" contenido="text/html; charset=windows-1252" />
-    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" title="style" />
-    <link rel="stylesheet" href="{% static 'style/Contenido.css' %}">
-    <link rel="stylesheet" href="{% static 'style/footer.css' %}">
-    <link rel="stylesheet" href="{% static 'style/boton.css' %}">
-  </head>
+<head>
+  <title>Equipo</title>
+  <meta name="description" contenido="website description" />
+  <meta name="keywords" contenido="website keywords, website keywords" />
+  <meta http-equiv="contenido-type" contenido="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" title="style" />
+  <link rel="stylesheet" href="{% static 'style/Contenido.css' %}">
+  <link rel="stylesheet" href="{% static 'style/footer.css' %}">
+  <link rel="stylesheet" href="{% static 'style/boton.css' %}">
+</head>
 
   <body>
     <div id="main">
@@ -30,6 +30,10 @@
             <li><a href="http://127.0.0.1:8000/myapp/listaTicket/">Ticket</a></li>
             <li><a href="http://127.0.0.1:8000/myapp/listaEmpleado/">Empleado</a></li>
           </ul>
+        </div>
+        <div id="zoom">
+          <button id="boton3" onclick="masZoom()"></button>
+          <button id="boton4" onclick="menosZoom()"></button>
         </div>
       </div>
       <div id="zona_contenido">
@@ -98,5 +102,10 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+<script src="{% static 'js/buscador.js' %}"></script>
+<script src="{% static 'js/zoom.js' %}"></script>
+<script src="{% static 'js/seleccionTabla.js' %}"></script>
+{% block jscript %} {% endblock %}
 </html>

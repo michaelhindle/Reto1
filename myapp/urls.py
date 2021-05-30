@@ -23,12 +23,12 @@ EquipoUpdateView, TicketUpdateView, EmpleadoUpdateView,
 EquipoCreateView, TicketCreateView, EmpleadoCreateView, 
 EquipoDeleteView, TicketDeleteView, EmpleadoDeleteView,
 EquipoDetailView, TicketDetailView, EmpleadoDetailView)
+from .views import buscarEquipo
 
 app_name = 'reto'
 
 urlpatterns = [
     # Path de inicio
-    path('', views.EquipoListView, name='ListaEquipo'),
     # Listas
     path('listaEquipo/', EquipoListView.as_view(), name='ListaEquipos'),
     path('listaTicket/', TicketListView.as_view(), name='ListaTicket'),
@@ -53,4 +53,7 @@ urlpatterns = [
     path('register/', views.register, name= 'register'), 
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    # Buscador
+    path('buscarEquipo/', views.buscarEquipo, name='BuscarEquipo')
+
 ]
