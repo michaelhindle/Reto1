@@ -26,6 +26,12 @@
     float: right;
 }
 
+#zoom{
+
+    height: auto;
+    margin-left: 40px;
+}
+
 #boton3{
 
     height: 30px;
@@ -39,3 +45,5 @@
     width: 60px;
     
 }
+
+
