@@ -15,8 +15,9 @@
               <input type="text" name="eq" placeholder="Escribe aqui" value="{{request.GET.eq}}" id="cosadebuscar">
               <button class="botonbuscar" id="boton" type="submit" > <img id="lupa" src="{% static 'imagenes/lupa.png' %}" width="35px" title="Buscar"></button>
             </form>
-
-            <button id="boton2" onclick="return borrarFiltro();" value="Limpiar Filtro">  </button>
+            <div id="botonfiltro">
+              <button id="boton2" onclick="return borrarFiltro();"> Limpiar Filtro </button>
+            </div>
         </div>
 
         <!-- el contenido principal se colocala en este div -->

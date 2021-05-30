@@ -15,9 +15,14 @@
 
 #boton2{
 
-    height: 30px;
+    height: 50px;
     width: 60px;
-    
+    float: right;
+}
+
+#botonfiltro{
+
+    float: right;
 }
 
 #boton3{

@@ -23,36 +23,38 @@ EquipoCreateView, TicketCreateView, EmpleadoCreateView,
 EquipoDeleteView, TicketDeleteView, EmpleadoDeleteView,
 EquipoDetailView, TicketDetailView, EmpleadoDetailView)
 from .views import buscarEquipo
+from django.contrib.auth.decorators import login_required
 
 app_name = 'reto'
 
 urlpatterns = [
     # Path de inicio
+    path('',LoginView.as_view(template_name='login.html'), name='login'),
     # Listas
-    path('listaEquipo/', EquipoListView.as_view(), name='ListaEquipos'),
-    path('listaTicket/', TicketListView.as_view(), name='ListaTicket'),
-    path('listaEmpleado/', EmpleadoListView.as_view(), name='ListaEmpleado'),
+    path('myapp/listaEquipo/', login_required(EquipoListView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/'), name='ListaEquipos'),
+    path('myapp/listaTicket/', login_required(TicketListView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/'), name='ListaTicket'),
+    path('myapp/listaEmpleado/', login_required(EmpleadoListView.as_view(),login_url='http://127.0.0.1:8000/myapp/login/'), name='ListaEmpleado'),
     # Update
-    path('updateEquipo/<int:pk>/', EquipoUpdateView.as_view(), name='UpdateEquipo'),
-    path('updateTicket/<int:pk>/', TicketUpdateView.as_view(), name='UpdateTicket'),
-    path('updateEmpleado/<int:pk>/', EmpleadoUpdateView.as_view(), name='UpdateEmpleado'),
+    path('myapp/updateEquipo/<int:pk>/', login_required(EquipoUpdateView.as_view(),login_url='http://127.0.0.1:8000/myapp/login/') ,name='UpdateEquipo'),
+    path('myapp/updateTicket/<int:pk>/', login_required(TicketUpdateView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') ,name='UpdateTicket'),
+    path('myapp/updateEmpleado/<int:pk>/', login_required(EmpleadoUpdateView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') ,name='UpdateEmpleado'),
     # Create
-    path('createEquipo/', EquipoCreateView.as_view(), name='CreateEquipo'),
-    path('createTicket/', TicketCreateView.as_view(), name='CreateTicket'),
-    path('createEmpleado/', EmpleadoCreateView.as_view(), name='CreateEmpleado'),
+    path('myapp/createEquipo/', login_required(EquipoCreateView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') ,name='CreateEquipo'),
+    path('myapp/createTicket/', login_required(TicketCreateView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='CreateTicket'),
+    path('myapp/createEmpleado/', login_required(EmpleadoCreateView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='CreateEmpleado'),
     # Delete
-    path('deleteEquipo/<int:pk>/', EquipoDeleteView.as_view(), name='DeleteEquipo'),
-    path('deleteTicket/<int:pk>/', TicketDeleteView.as_view(), name='DeleteTicket'),
-    path('deleteEmpleado/<int:pk>/', EmpleadoDeleteView.as_view(), name='DeleteEmpleado'),
+    path('myapp/deleteEquipo/<int:pk>/', login_required( EquipoDeleteView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='DeleteEquipo'),
+    path('myapp/deleteTicket/<int:pk>/', login_required( TicketDeleteView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') ,name='DeleteTicket'),
+    path('myapp/deleteEmpleado/<int:pk>/', login_required( EmpleadoDeleteView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='DeleteEmpleado'),
     # Detail
-    path('detailEquipo/<int:pk>/', EquipoDetailView.as_view(), name='DetailEquipo'),
-    path('detailTicket/<int:pk>/', TicketDetailView.as_view(), name='DetailTicket'),
-    path('detailEmpleado/<int:pk>/', EmpleadoDetailView.as_view(), name='DetailEmpleado'),
+    path('myapp/detailEquipo/<int:pk>/', login_required( EquipoDetailView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='DetailEquipo'),
+    path('myapp/detailTicket/<int:pk>/', login_required( TicketDetailView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='DetailTicket'),
+    path('myapp/detailEmpleado/<int:pk>/', login_required( EmpleadoDetailView.as_view(), login_url='http://127.0.0.1:8000/myapp/login/') , name='DetailEmpleado'),
     # Login
-    path('register/', views.register, name= 'register'), 
-    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('myapp/register/', views.register, name= 'register'), 
+    path('myapp/login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('myapp/logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     # Buscador
-    path('buscarEquipo/', views.buscarEquipo, name='BuscarEquipo')
+    path('myapp/buscarEquipo/',login_required( views.buscarEquipo,login_url='http://127.0.0.1:8000/myapp/login/'), name='BuscarEquipo'),
 
 ]
