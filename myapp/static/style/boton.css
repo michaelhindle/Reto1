@@ -4,11 +4,32 @@
 }
 .boton1{
     display: inline-block;
-    background: rgb(2, 95, 170);
+    background: rgb(4, 158, 158);
     color: white;
     padding: 10px 30px;
     text-decoration: none;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 5px 5px 3px rgba(6, 54, 0, 0.4);
+}
+
+#boton2{
+
+    height: 30px;
+    width: 60px;
+    
+}
+
+#boton3{
+
+    height: 30px;
+    width: 60px;
+    
+}
+
+#boton4{
+
+    height: 30px;
+    width: 60px;
+    
 }

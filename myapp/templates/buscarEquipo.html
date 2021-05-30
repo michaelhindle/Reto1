@@ -4,8 +4,6 @@
 
 
 
-
-
     
 {% block main %}
      
@@ -13,17 +11,20 @@
         <!-- buscador -->
 
         <div id="buscador">
-            <form action="http://127.0.0.1:8000/myapp/buscarEquipo/" method="GET">
-              <input type="text" name="eq" placeholder="hola" value="{{request.GET.eq}}" id="cosadebuscar">
-              <input class="botonbuscar" id="boton" type="submit"> 
+            <form action="http://127.0.0.1:8000/myapp/buscarEquipo/" method="GET" >
+              <input type="text" name="eq" placeholder="Escribe aqui" value="{{request.GET.eq}}" id="cosadebuscar">
+              <button class="botonbuscar" id="boton" type="submit" > <img id="lupa" src="{% static 'imagenes/lupa.png' %}" width="35px" title="Buscar"></button>
             </form>
+
+            <button id="boton2" onclick="return borrarFiltro();" value="Limpiar Filtro">  </button>
         </div>
 
         <!-- el contenido principal se colocala en este div -->
         <h1>Equipo</h1>
         <a href="http://127.0.0.1:8000/myapp/createEquipo/" class="crear" ><img src="{% static 'imagenes/mas.png' %}" width="35px"></a>
         <table>
-          <thead>
+        {% if equipos %}
+        <thead>
             <!--Cabecera de los datos del empleado-->
             <tr>
                 <th class="cabecera">Número de Serie</th>
@@ -33,9 +34,10 @@
             </tr>
         </thead>
         <tbody>
-            {% if object_list %}
-            {% for equipo in object_list %}
-            <tr id="lineaEquipo" onmouseover="cambiaColor()" onmouseout="colorOriginal()">
+
+            {% if equipos %}
+            {% for equipo in equipos %}
+            <tr>
                 <td>{{ equipo.numero_de_serie }}</td> <!--Numero de serie guardados en la bd-->
                 <td>{{ equipo.tipo_equipo}}</td> <!--Tipo de equipo guardados en la bd-->
                 <td>{{ equipo.proveedor_nombre }}</td> <!--Nombre del Proveedor guardados en la bd-->
@@ -58,10 +60,15 @@
 
             {% endif %}
         </tbody>
+
+        {% else %}
+
+        <div>
+            <h1>No hay resultados</h1>
+        </div>
+
+        {% endif %}
         </table>
       </div>
 {% endblock %}
 
-
-   
-  

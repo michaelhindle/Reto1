@@ -9,7 +9,6 @@
   <meta http-equiv="contenido-type" contenido="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" title="style" />
   <link rel="stylesheet" href="{% static 'style/Contenido.css' %}">
-  <link rel="stylesheet" href="{% static 'style/lateral.css' %}">
   <link rel="stylesheet" href="{% static 'style/footer.css' %}">
   <link rel="stylesheet" href="{% static 'style/boton.css' %}">
 </head>
@@ -22,6 +21,10 @@
           <!-- En esta parte se coloca el nombre de la empresa y tiene como directorio la lista de Equipo -->
           <h1><a href="http://127.0.0.1:8000/myapp/listaEquipo/">Deustomach<span class="logo_colour">Innovation S.L.</span></a></h1>
           <h2>Gestión de Mantenimiento de Equipos</h2>
+        </div>
+        <div id="zoom">
+          <button id="boton3" onclick="masZoom()"></button>
+          <button id="boton4" onclick="menosZoom()"></button>
         </div>
       </div>
       <div id="menubar">
@@ -99,4 +102,8 @@
     </div>
   </div>
 </body>
+<script src="{% static 'js/buscador.js' %}"></script>
+<script src="{% static 'js/zoom.js' %}"></script>
+<script src="{% static 'js/seleccionTabla.js' %}"></script>
+{% block jscript %} {% endblock %}
 </html>

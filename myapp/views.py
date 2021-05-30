@@ -4,6 +4,7 @@ from .models import Equipo, Ticket, Empleado
 from .forms import EquipoForm, TicketForm, EmpleadoForm, UserRegisterForm
 from django.contrib import messages 
 from django.shortcuts import render, redirect 
+from django.db.models import Q
 
 # Create your views here.
 
@@ -95,6 +96,22 @@ class EmpleadoDeleteView(DeleteView):
     success_url = "http://127.0.0.1:8000/myapp/listaEmpleado"
 
 
+def buscarEquipo(request):
+    if request.GET["eq"]:
+        bequipo = request.GET["eq"]
+        equipobusca = Equipo.objects.filter(
+            Q(numero_de_serie__icontains=bequipo) |
+            Q(tipo_equipo__icontains=bequipo) |
+            Q(proveedor_nombre__icontains=bequipo) |
+            Q(proveedor_tlf__icontains=bequipo)
+        ).distinct()
+
+        return render(request, "buscarEquipo.html",{"equipos":equipobusca, "query":bequipo})
+    
+    else:
+        return render(request, "buscarEquipo.html")
+
+
 def register(request): 
     if request.method == 'POST': 
         form = UserRegisterForm(request.POST)
@@ -108,6 +125,3 @@ def register(request):
 
     context = { 'form' : form}
     return render(request, 'register.html', context)
-
-def profile(request):
-    return render(request, 'profile.html')
