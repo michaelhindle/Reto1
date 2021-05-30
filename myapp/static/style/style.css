@@ -35,7 +35,7 @@ h4
 
 a{
   text-decoration: none;
-  color: #000;
+  color: rgb(255, 255, 255);
 }
 
 blockquote
@@ -51,6 +51,10 @@ ul li
 { list-style-type: circle;
   margin: 0 0 6px 0; 
   padding: 0 0 4px 5px;}
+
+li{
+  color: rgb(255, 255, 255);
+}
 
 ol
 { margin: 8px 0 22px 20px;}
