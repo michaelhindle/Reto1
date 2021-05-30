@@ -33,16 +33,20 @@
 }
 
 #boton3{
-
+    display: inline-block;
     height: 30px;
     width: 60px;
+    background: rgb(4, 158, 158);
+    border-radius: 5px;
     
 }
 
 #boton4{
-
+    display: inline-block;
     height: 30px;
     width: 60px;
+    background: rgb(4, 158, 158);
+    border-radius: 5px;
     
 }
 
