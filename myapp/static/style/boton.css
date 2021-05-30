@@ -15,14 +15,14 @@
 }
 
 #boton2{
-
+    display: inline-block;
     height: 50px;
     width: 60px;
-    float: right;
+    border-radius: 10px;
+    
 }
 
 #botonfiltro{
-
     float: right;
 }
 
